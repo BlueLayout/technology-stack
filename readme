@@ -1,2 +1,11 @@
 technology stack
 #新增线程池以及并发编程部分内容
+
+HttpClient总结:
+HttpClient连接池抛出大量的ConnectPoolTimeoutException:Timeout waiting for connection异常，时间一长tomcat就无法继续处理其他的请求。从假死到真死。
+如果是TIME_OUT的话，就去修改sysctl
+场景：服务器A会去请求额服务器B上面的apache获取文件资源，正常情况下，如果请求成功，那么在抓取完资源后服务器A就会主动发出关闭连接的请求，这个时候就是主动
+发出关闭连接的请求，这个时候就是主动关闭连接，连接状态我们可以看到是TIME_WAIT.
+如果一旦发生异常呢？假如请求的资源，服务器B不存在，那么这个时候就会由服务器B发出关闭连接的请求，服务器A就是被动的关闭连接，如果服务器A被动关闭连接后自己
+并没有释放连接，那么会造成CLOSE_WAIT的状态了。
+使用abort()
