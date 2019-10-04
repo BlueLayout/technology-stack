@@ -9,3 +9,5 @@ HttpClient连接池抛出大量的ConnectPoolTimeoutException:Timeout waiting fo
 如果一旦发生异常呢？假如请求的资源，服务器B不存在，那么这个时候就会由服务器B发出关闭连接的请求，服务器A就是被动的关闭连接，如果服务器A被动关闭连接后自己
 并没有释放连接，那么会造成CLOSE_WAIT的状态了。
 使用abort()
+
+#新增了JVM部分，JVM的概念与优化，类加载器
