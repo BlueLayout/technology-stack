@@ -11,3 +11,5 @@ HttpClient连接池抛出大量的ConnectPoolTimeoutException:Timeout waiting fo
 使用abort()
 
 #新增了JVM部分，JVM的概念与优化，类加载器
+
+#丰富了Nginx的部分，增加了Nginx的应用部分，包括Nginx动静分离,防盗链，负载均衡等。
